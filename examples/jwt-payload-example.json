@@ -1,0 +1,12 @@
+{
+  "iss": "https://your-tenant.auth0.com/",
+  "sub": "client_8Q7fG2Example",
+  "aud": [
+    "https://api.example.com/ords-api"
+  ],
+  "scope": "read:demo",
+  "iat": 1762339200,
+  "exp": 1762342800,
+  "azp": "your-m2m-client-id",
+  "gty": "client-credentials"
+}
