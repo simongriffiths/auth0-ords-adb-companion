@@ -1,9 +1,17 @@
 prompt Cleaning up demo artifacts for the Auth0 + ORDS + ADB demo
 
--- Cleanup removes the demo privilege, module, and table where possible.
--- The current demo uses a scope-based privilege without ORDS roles.
+-- Cleanup removes the schema-level JWT profile, demo privilege, module, and
+-- table where possible. The current demo uses a scope-based privilege without
+-- ORDS roles.
 
 begin
+  begin
+    ords_security.delete_jwt_profile;
+  exception
+    when others then
+      null;
+  end;
+
   begin
     ords.delete_privilege(
       p_name => 'read:demo'

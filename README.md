@@ -64,6 +64,7 @@ auth0-ords-adb-companion/
 │   ├── 01_create_sample_objects.sql
 │   ├── 02_define_module.sql
 │   ├── 03_define_security.sql
+│   ├── 04_create_jwt_profile.sql
 │   └── 99_cleanup.sql
 ├── scripts/
 │   ├── get-token.sh
@@ -82,9 +83,12 @@ auth0-ords-adb-companion/
    - `sql/01_create_sample_objects.sql`
    - `sql/02_define_module.sql`
    - `sql/03_define_security.sql`
+   - `sql/04_create_jwt_profile.sql`
 5. Request an access token with `scripts/get-token.sh`.
 6. Call the secured endpoint with `scripts/call-secure-endpoint.sh`.
 7. If the call fails, use `scripts/decode-jwt.sh` and [docs/troubleshooting.md](docs/troubleshooting.md).
+
+If your ORDS deployment uses pool-level JWT profiles instead of schema-level JWT profiles, configure the equivalent `security.jwt.profile.*` settings in the ORDS pool and skip `sql/04_create_jwt_profile.sql`.
 
 ## Test Flow
 
@@ -97,6 +101,8 @@ The intended path through this repository is:
 5. Request a token.
 6. Call the secured endpoint.
 7. Verify the result.
+
+For schema-level JWT trust, the SQL step includes creating the JWT profile. For pool-level JWT trust, apply the pool configuration instead.
 
 Expected high-level outcomes:
 

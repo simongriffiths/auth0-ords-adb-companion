@@ -99,6 +99,14 @@ Depending on the ORDS deployment, JWT trust may be configured in one of two plac
 
 If the pool is configured for pool-level JWT profiles, schema-level profiles are ignored.
 
+## Repo Mapping
+
+In this repository:
+
+- `sql/04_create_jwt_profile.sql` shows the schema-owner path with `ORDS_SECURITY.CREATE_JWT_PROFILE`
+- an administrator can use `ORDS_SECURITY_ADMIN.CREATE_JWT_PROFILE` instead when managing the JWT profile for another schema
+- `ords/jwt-profile.example.properties` shows the pool-level configuration shape when the deployment is running in pool mode
+
 ## Reference Template
 
 See [../ords/jwt-profile.example.properties](../ords/jwt-profile.example.properties) for a placeholder-driven example you can adapt to your environment.

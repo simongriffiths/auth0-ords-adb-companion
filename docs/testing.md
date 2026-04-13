@@ -37,8 +37,11 @@ Run the scripts in order:
 1. `sql/01_create_sample_objects.sql`
 2. `sql/02_define_module.sql`
 3. `sql/03_define_security.sql`
+4. `sql/04_create_jwt_profile.sql`
 
 If you need to remove the demo later, use `sql/99_cleanup.sql`.
+
+If your environment uses pool-level JWT profiles, configure the equivalent `security.jwt.profile.*` settings in ORDS and skip the schema-level JWT profile script.
 
 ## 5. Request a Token
 
